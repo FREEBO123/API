@@ -7,7 +7,7 @@ etf_conservador = ["VOO","AGG","SPY"]
 def apiMonth(perfil):
     for n in perfil:
         # Endpoint de la API
-        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={n}&apikey=0P5FY0AH6H5YGX40"
+        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={n}&apikey="
 
         # Hacer la solicitud GET
         response = requests.get(url)
@@ -47,14 +47,14 @@ def apiMonth(perfil):
         plt.grid()
         plt.tight_layout()
 
-        plt.savefig(f'C:/Users/dell/Downloads/SCRIPTS/APIs/ETF/Grafico_Mensual_{n}.png', dpi=300, bbox_inches='tight')
+        plt.savefig(f'Grafico_Mensual_{n}.png', dpi=300, bbox_inches='tight')
         plt.close()
 
 def apiDia(perfil):
 
     for n in perfil:
         # Endpoint de la API
-        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={n}&interval=30min&apikey=0P5FY0AH6H5YGX40"
+        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={n}&interval=30min&apikey="
 
         #convertir a json
         response = requests.get(url)
@@ -98,13 +98,13 @@ def apiDia(perfil):
         plt.grid()
         plt.tight_layout()
 
-        plt.savefig(f'C:/Users/dell/Downloads/SCRIPTS/APIs/ETF/Grafico_Diario_{n}.png', dpi=300, bbox_inches='tight')
+        plt.savefig(f'Grafico_Diario_{n}.png', dpi=300, bbox_inches='tight')
         plt.close()
 
 def apiWeek(perfil):
     for n in perfil:
         # Endpoint de la API
-        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={n}&apikey=0P5FY0AH6H5YGX40"
+        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={n}&apikey="
 
         #convertir a json
         response = requests.get(url)
@@ -148,9 +148,9 @@ def apiWeek(perfil):
         plt.grid()
         plt.tight_layout()
 
-        plt.savefig(f'C:/Users/dell/Downloads/SCRIPTS/APIs/ETF/Grafico_Semanal_{n}.png', dpi=300, bbox_inches='tight')
+        plt.savefig(f'Grafico_Semanal_{n}.png', dpi=300, bbox_inches='tight')
         plt.close()
 
-#apiWeek(etf_conservador)
+apiWeek(etf_conservador)
 apiDia(etf_conservador)
-#apiMonth(etf_conservador)
+apiMonth(etf_conservador)
